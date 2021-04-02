@@ -1,0 +1,50 @@
+#include <iostream>
+using namespace std;
+//Recursion
+
+// Q.1 Add all number till n
+int sum(int n)
+{
+    if(n==0)
+      return 0;
+    else
+      return sum(n-1)+n;
+}
+
+//Q.2 calculate n raised to power of p
+int power(int n,int p)
+{
+    if(p==0)
+      return 1;
+      else
+        return power(n,p-1)*n;
+}
+
+//Q.3 Find the factorial of a number n
+int Fact(int n)
+{
+    if(n==0)
+    return 1;
+    else
+    return Fact(n-1)*n;
+}
+
+//Q.4 print the nth Fibonacci 
+
+int Fib(int n)
+{
+    if(n==0 || n==1)
+    return n;
+    
+    else
+      return Fib(n-1)  + Fib(n-2);
+}
+
+int main()
+{
+     int n,p;
+     cin>>n;
+     cout<<Fib(n)<<endl;
+    
+    return 0;
+}
