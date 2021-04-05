@@ -1,0 +1,139 @@
+#include <iostream>
+using namespace std;
+
+//Q1. Reverse a string using recursion
+
+void reverse(string s)
+{
+    //base case
+    if(s.length()==0)
+    {
+        return;
+    }
+    string restofstring=s.substr(1);
+    reverse(restofstring);
+    cout<<s[0];
+}
+
+//Q2. Math.PI(pie) Replace pi with 3.14 in string
+//     "pixppppxxddpicpi"
+//     "3.14xppppxxdd3.14c3.14"
+
+void replacepi(string s)
+{
+    //base case
+    if(s.length()==0)
+    {
+        return ;
+    }
+    if(s[0]=='p' && s[1]=='i')
+    {
+    cout<<"3.14";
+    //next string 
+    replacepi(s.substr(2));
+    }
+   else
+   {
+       cout<<s[0];
+       //next string 
+       replacepi(s.substr(1));
+   }
+    
+    
+}
+/Q.3 Tower of Hanoi using recursion
+// sorce=A,helper=B,destination=dest=C
+void towerofhanoi(int n,char scr,char dest,char helper)
+{
+    //base case
+    if(n==0)
+    {
+        return ;
+    }
+    
+    towerofhanoi(n-1,scr,helper,dest);
+    cout<<"Move from " <<scr<<" to "<<dest<<endl;
+    towerofhanoi(n-1,helper,dest,scr);
+}
+
+//Q4. remove all duplicates from the String
+
+string removeDup(string s)
+{
+    //base case
+    if(s.length()==0)
+    {
+        return "";
+    }
+    
+    char ch=s[0];
+    string ans=removeDup(s.substr(1));
+    
+    if(ch==ans[0])
+    {
+        return ans;
+    }
+    return (ch+ans);
+}
+
+//Q.5 Move all X to the end of the String 
+  //  i/p =   "axxbdxcefxhix"
+//    o/p =    "abdcefhixxxxx"
+
+ string moveallx(string s)
+ {
+     //base case 
+     if(s.length()==0)
+     {
+         return "";
+     }
+     
+     char ch=s[0];
+     string ans=moveallx(s.substr(1));
+     
+     if(ch=='x')
+     {
+         //logic 
+         return (ans+ch);
+     }
+     return (ch+ans);
+ }
+ 
+ 
+// Q.6  Genereate all Substrings of a string
+
+void Subseq(string s,string ans)
+{
+   // base case
+    if(s.length()==0)
+    {
+        cout<<ans<<endl;
+        return ;
+    }
+    char ch=s[0];
+    string restofstring=s.substr(1);
+    
+    //  logic  of Q
+    
+    Subseq(restofstring,ans);
+    Subseq(restofstring,ans+ch);
+}
+
+int main() {
+    reverse("ahjykcib");
+    
+    replacepi("apihjpiykcibpi");
+
+    towerofhanoi(3,'A','C','B');
+    
+    cout<<removeDup("aaaaacccbbbnnmmssola");
+    
+    cout<<moveallx("xbxicxkyjxxhxa");
+    
+    Subseq("ABC","");
+    
+    
+    return 0;
+}
+
+
