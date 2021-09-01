@@ -1,0 +1,22 @@
+#include<iostream>
+using namespace std;
+int main(){
+  int row, col;
+  cout << "Row :\n ";
+  cin >> row;
+  cout << "Col :\n ";
+  cin >> col;
+
+  for(int i=1;i<=row;i++){
+    for(int j=1;j<=col;j++){
+      if(i==row || i == 1 || j==col || j==1 ){
+        cout <<"*";
+      }
+    else{
+     cout<<" ";
+   }
+    }
+    cout <<endl;
+  }
+  return 0;
+}
